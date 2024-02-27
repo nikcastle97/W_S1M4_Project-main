@@ -1,0 +1,470 @@
+<!-- Intro to HTML & CSS I
+
+  Module Project Overview
+
+    You will build a website to display the bio of your favorite programmer, artist, etc.
+
+    In order to do this, you will create an `index.html` file and scaffold the document
+    with the elements shared by all HTML documents:
+
+    - doctype declaration
+    - html element
+    - head, containing a title and an optional style tag
+    - body, containing the markup that renders to the screen
+
+  Requirements
+
+    Review this article: https://www.w3schools.com/html/html5_semantic_elements.asp
+
+    Create an `index.html` file for your site, or use this same file.
+
+    For your site, you will make use of at least the following semantic elements:
+
+    - header (to contain the main heading of the site, and the nav)
+    - nav (to contain some links to navigate to the different sections of this document)
+    - section (each holding at least a heading and a paragraph)
+    - aside (containing an img and a caption)
+    - footer (containing a contact form)
+    - form (containing at least two inputs with their labels)
+
+    See an example of a finished site: https://bloominstituteoftechnology.github.io/img/anita-borg-bio-website.png
+
+    The example above is quite simple, but you can make your site as fancy as you'd like. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Martel&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+    <style>
+      .page {
+        background: rgb(236,45,42);
+        background: radial-gradient(circle, rgb(46,193,219,1) 10%, rgba(255, 0, 0, 0.322) 65%, rgba(46,193,219,1) 98%);
+      }
+      .headerDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(243, 196, 255, 0.466);
+        padding: 10%;
+        clip-path: polygon(50% 0, 66% 33%, 100% 50%, 66% 66%, 50% 100%, 33% 66%, 0 50%, 33% 33%);
+      }
+      .mainImage {
+        width: 33%;
+        display: block;
+        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50%;
+      }
+      #mainHeading {
+        
+      }
+      .mainImgCaption {
+        color: rgb(19, 118, 148);
+        width: fit-content;
+        border: 5px dashed rgba(255, 255, 255, 0.274);
+        padding: 5px;
+        border-radius: 30%;
+         font-family: 'Gowun Batang', serif;
+      }
+      #taylorWithTravis {
+        width: 50%;
+        height: auto;
+        padding: 5px;
+      }
+      #taylorGlow {
+        width: 35%;
+        height: auto;
+        padding: 5px;
+      }
+      #taylorMarching {
+        width: 35%;
+        height: auto;
+        padding: 5px;
+      }
+      .imgCollect {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 5px;
+        align-items: center;
+        background: rgb(236,45,42);
+        background: radial-gradient(circle, rgba(236,45,42,0.7632978723404256) 10%, rgba(255,38,201,0.6090425531914894) 65%, rgba(46,193,219,1) 98%);
+        border-radius: 15%;
+      }
+      .mainTwoImgs {
+        border-radius: 50%;
+        text-align: center;
+      }
+      .images {
+        padding: 5px;
+        border: dotted rgba(255, 255, 255, 0.274);
+        border-radius: 50%;
+      }
+      #mainHeading {
+        color: white;
+        font-size: 73pt;
+        font-style: italic;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2%;
+        padding-left: 10%;
+        padding-right: 10%;
+      }
+      #titleCaption {
+        font-style: italic;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      #topLinks {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 5%;
+        margin-bottom: 15%;
+        padding-left: 30%;
+        padding-right: 30%;
+        border-radius: 49%
+      }
+      .headNavLinks {
+        color: white;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        background: solid rgba(255, 255, 255, 0);
+        border: solid rgba(255, 255, 255, 0);
+        border-radius: 50%;
+        padding: 15px;
+        transition: 0.5s;
+      }
+      .headNavLinks:hover {
+        cursor: pointer;
+        transform: scale(1.25); opacity: 0.7; color: black;
+      }
+      #aboutHeader {
+        color: white;
+        font-size: 45pt;
+        font-style: italic;
+      }
+      #discHeader {
+        color: white;
+        font-size: 45pt;
+        font-style: italic;
+      }
+      #about {
+        background: solid white;
+        border: solid rgba(255, 255, 255, 0.274);
+        border-radius: 7%;
+        padding: 3%;
+        margin-top: 25%;
+        margin-bottom: 25%;
+      }
+      #aboutText {
+        color:rgb(19, 118, 148);
+        font-size: 175%;
+      }
+      #disc {
+        border: 10px solid rgba(255, 255, 255, 0.274);
+        padding: 3%;
+      }
+      .albums {
+        border: 5px dashed rgba(255, 255, 255, 0.336);
+        border-radius: 50%;
+        padding-left: auto;
+        padding-right: auto;
+        direction: flex;
+        flex-direction: center;
+        justify-content: flex-start;
+        padding: 15%;
+        margin: 8%
+      }
+      #signUpControl {
+        background: local;
+        border-radius: 50%;
+        position: bottom;
+        transform: translate(0, -10%);
+        margin-top: 45%;
+        display: column;
+        align-items: flex-start;
+      }
+      #footHead {
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.932);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 10px;
+      }
+      #inputSignUp {
+        background: rgba(255, 255, 255, 0.13);
+        height: 75%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #endTag {
+        border-radius: 3%;
+        background: rgba(0, 0, 0, 0.747);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 5%;
+        margin-top: 20%;
+      }
+    </style>
+  </head>
+  <body class="page">
+    <section>
+      <header>
+        <aside>
+          <div class="headerDiv">
+            <img id= "taylorEras1"  class= "mainImage" src=https://publish.purewow.net/wp-content/uploads/sites/2/2024/01/Taylor-Swift-2024-Golden-Globes-Dress-CAT2.jpg?resize=720%2C550>
+            </imgsrc>
+            <panel id="topLinks">
+              <a id="aboutT" class="headNavLinks" href="#about">About</a>
+              <a id="discT" class="headNavLinks" href="#discHeader">Discography</a>
+            </panel>
+          </div>
+        </aside>
+        <aside>
+          <h1 id="mainHeading" class="headers">Taylor Swift</h1>
+          <p id="titleCaption" class="tayCaption">"The International Sensation"</p>
+        </aside>
+      </header>
+    </section>
+    <section>
+      <aside class="imgCollect">
+        <img id="taylorWithTravis" class="images" src="https://www.billboard.com/wp-content/uploads/2024/01/taylor-swift-travis-kelce-kiss-jan-28-2024-billboard-1548.jpg">
+        <div class="mainTwoImgs">
+        <img id="taylorGlow" class="images" src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2023-07/230713-taylor-swift-jm-1600-daea0b.jpg">
+        <img id="taylorMarching" class="images" src="https://www.billboard.com/wp-content/uploads/2023/12/taylor-swift-eras-foxborough-2023-billboard-1548.jpg">
+        </div>
+      </aside>
+    </section>
+    <section id="about">
+      <div id="aboutSwiftly" class="paragraphs">
+        <h2 id="aboutHeader" class="headers">Who Is She..?</h2>
+        <article id="aboutText">
+          <blockquote>
+          Taylor Swift has become a worldwide phenomena of unparralleded proportions! Not only has she succeeded in winning over the entirety of Pop-Music Culture's Fan-Base, but football fans in addition have been fawning over this celebrity sensation as of late with her courtship of Travis Kelsy.
+          </blockquote>
+          <blockquote>
+          The "Eras Tour" has become a phenomena of its own as well! With Fans filling theatres world-wide, her success and fame have spread to nearly every corner of the globe. She is truly a magnificent artist whom we all love and adore.
+          </blockquote>
+        </article>
+      </div>
+    </section>
+    <section id="disc">
+    <h2 id="discHeader" class="headers">Her Albums To Date!</h2>
+          <aside id="tSwiftControl" class="albums">
+            <div>
+              <h3 id="tSwiftTitle" class="albTitles">"Taylor Swift"</h3>
+            </div>
+            <div>
+              <a href="https://en.wikipedia.org/wiki/Taylor_Swift_%28album%29" target="_blank">
+                <img id="tSwiftAlb" class="albCovs" src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/Taylor_Swift_-_Taylor_Swift.png/220px-Taylor_Swift_-_Taylor_Swift.png">
+              </a>
+            </div>
+            <div>
+              <p id="tSwiftDescript" class="albDescripts">
+                <blockquote>
+                  "Taylor Swift", being the title of her very first album may seem a bit on the nose, but it seems to have worked in her favor. With its initial release in late October of 2006, fans quickly rallied to the 11-track standard.
+                </blockquote>
+              </p>
+            </div>
+          </aside>
+          <aside id="fearlessControl" class="albums">
+            <div>
+              <h3 id="fearlessTitle" class="albTitles">"Fearless"</h3>
+            </div>
+            <div>
+              <a href="https://en.wikipedia.org/wiki/Fearless_%28Taylor_Swift_album%29" target="_blank">
+                <img id="fearlessAlb" class="albCovs" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/86/Taylor_Swift_-_Fearless.png/220px-Taylor_Swift_-_Fearless.png">
+              </a>
+            </div>
+            <div>
+              <p id="fearlessDescript" class="albDescripts">
+                <blockquote>
+                  In mid-to-early November, and in the midst of spooks and turkeys, Taylor released her second studio recorded album. "Fearless". 
+                </blockquote>
+              </p>
+            </div>
+          </aside>
+          <aside id="speakNowControl" class="albums">
+            <div>
+              <h3 id="speakNowTitle" class="albTitles">"Speak Now"</h3>
+            </div>
+            <div>
+              <a href="https://en.wikipedia.org/wiki/Speak_Now" target="_blank">
+                <img id="speakNowAlb" class="albCovs" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/Taylor_Swift_-_Speak_Now_cover.png/220px-Taylor_Swift_-_Speak_Now_cover.png">
+              </a>
+            </div>
+            <div>
+              <p id="speakNowDescript" class="albDescripts">
+                <blockquote>
+                  October 25th, 2010 greeted Taylor's third release, "Speak Now".
+                </blockquote>
+              </p>
+            </div>
+          </aside>
+          <aside id="redControl" class="albums">
+            <div>
+              <h3 id="redTitle" class="albTitles">"Red"</h3>
+            </div>
+            <div>
+              <a href="https://en.wikipedia.org/wiki/Red_%28Taylor_Swift_album%29" target="_blank">
+                <img id="redAlb" class="albCovs" src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/Taylor_Swift_-_Red.png/220px-Taylor_Swift_-_Red.png">
+              </a>
+            </div>
+            <div>
+              <p id="redDescript" class="albDescripts">
+                <blockquote>
+                  Released as expected late October yet again in 2012, "Red" helped to push Taylor's sound in an entirely new direction. Mixing elements of pop-country, rock and dubstep in an entirely new way for the artist to make something phenominal!
+                </blockquote>
+              </p>
+            </div>
+          </aside>
+          <aside id="1989Control" class="albums">
+            <div>
+              <h3 id="1989Title" class="albTitles">"1989"</h3>
+            </div>
+            <div>
+              <a href="https://pt.wikipedia.org/wiki/1989_%28%C3%A1lbum_de_Taylor_Swift%29" target="_blank">
+                <img id="1989Alb" class="albCovs" src="https://upload.wikimedia.org/wikipedia/pt/thumb/c/c3/1989_de_Taylor_Swift.jpg/220px-1989_de_Taylor_Swift.jpg">
+              </a>
+            </div>
+            <div>
+              <p id="1989Descript" class="albDescripts">
+                <blockquote>
+                  Instead of releasing "1989" outright on all platforms with the initial release on October 27th, 2014, Taylor decided to withhold on streaming and release only with hard-copies.
+                </blockquote>
+              </p>
+            </div>
+          </aside>
+          <aside id="repControl" class="albums">
+            <div>
+              <h3 id="repTitle" class="albTitles">"reputation"</h3>
+            </div>
+            <div>
+              <a href="https://en.wikipedia.org/wiki/Reputation_%28album%29" target="_blank">
+                <img id="repAlb" class="albCovs" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Taylor_Swift_-_Reputation.png/220px-Taylor_Swift_-_Reputation.png">
+              </a>
+            </div>
+            <div>
+              <p id="repDescript" class="albDescripts">
+                <blockquote>
+                  Delving into a better picture of the Taylor we know today, "reputation" excited some and offended a few with its real-to-a-fault attitude. This album was released on November 10th, 2017.
+                </blockquote>
+              </p>
+            </div>
+          </aside>
+          <aside id="loverControl" class="albums">
+            <div>
+              <h3 id="loverTitle" class="albTitles">"Lover"</h3>
+            </div>
+            <div>
+              <a href="https://en.wikipedia.org/wiki/Lover_%28album%29" target="_blank">
+                <img id="loverAlb" class="albCovs" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Taylor_Swift_-_Lover.png/220px-Taylor_Swift_-_Lover.png">
+              </a>
+            </div>
+            <div>
+              <p id="loverDescript" class="albDescripts">
+                <blockquote>
+                  "Lover", released on August 23, 2019, was the first album of Taylor's to not only switch it up and release more than a month before any of its predecessors, but it was also noted for its queer-coated nuiances and themes which set fans a-blaze in support! This album in particular prooved inovative on a different level than previous ventures of the young singer/song-writer.
+                </blockquote>
+              </p>
+            </div>
+          </aside>
+          <aside id="folkloreControl" class="albums">
+            <div>
+              <h3 id="folkloreTitle" class="albTitles">"Folklore"</h3>
+            </div>
+            <div>
+              <a href="https://en.wikipedia.org/wiki/Folklore_%28Taylor_Swift_album%29" target="_blank">
+                <img id="folkloreAlb" class="albCovs" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f8/Taylor_Swift_-_Folklore.png/220px-Taylor_Swift_-_Folklore.png">
+              </a>
+            </div>
+            <div>
+              <p id="folkloreDescript" class="albDescripts">
+                <blockquote>
+                  Turning directions yet again, Taylor Swift released "Folklore", a more lo-fi version of her trademark style of sound. After its release on July 24th, 2020, it became a sensation only to be coupled with and followed by its successor...
+                </blockquote>
+              </p>
+            </div>
+          </aside>
+          <aside id="evermoreControl" class="albums">
+            <div>
+              <h3 id="evermoreTitle" class="albTitles">"Evermore"</h3>
+            </div>
+            <div>
+              <a href="https://en.wikipedia.org/wiki/Evermore_%28Taylor_Swift_album%29" target="_blank">
+                <img id="evermoreAlb" class="albCovs" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0a/Taylor_Swift_-_Evermore.png/220px-Taylor_Swift_-_Evermore.png">
+              </a>
+            </div>
+            <div>
+              <p id="evermoreDescript" class="albDescripts">
+                <blockquote>
+                  "Evermore" directly following its counterpart "Folklore" and released on December 11th at the fatal end of the dreaded year of 2020. It quickly climbed the song-charts like evry other Taylor Swift release to date; sensationally...
+                </blockquote>
+              </p>
+            </div>
+          </aside>
+          <aside id="midnightsControl" class="albums">
+            <div>
+              <h3 id="midnightsTitle" class="albTitles">"Midnights"</h3>
+            </div>
+            <div>
+              <a href="https://en.wikipedia.org/wiki/Midnights" target="_blank">
+                <img id="midnightsAlb" clasds="albCovs" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Midnights_-_Taylor_Swift.png/220px-Midnights_-_Taylor_Swift.png">
+              </a>
+            </div>
+            <div>
+              <p id="midnightsDescript" class="albDescripts">
+                <blockquote>
+                  And that leave us with "midnights", the current favorite album of many a' swifties to date. Its release on October 21st oof 2022 excited and intrigued fans after nearly two year without a new release.
+                </blockquote>
+              </p>
+            </div>
+          </aside>
+    </section>
+    <section>
+      <form id="signUpControl" class="forms">
+        <h4 id="footHead" class="headers">Enter info to sign up for our mailing list...</h4>
+          <a id="inputSignUp">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <label for="fname">E-Mail:</label>
+            <input type="text" id="email" name="email">
+          </a>
+      </form>
+    </section>
+    <section>
+      <aside>
+        <footer id="endTag" class="end">
+          This webpage was created by Nik Castle and complete in its initial phase on 02/04/2024 @ 12:48pm. Main sources were pulled from: purewow.com, theroxytheater.org, billboard.com, media-cldnry.s-nbcnews.com, billboard.com & wikipedia.com. Created in Visual Studio.
+        </footer>
+      </aside>
+    </section>
+  </body>
+</html>
+
+
+<!--https://www.theroxytheater.org/wp-content/uploads/2023/09/taylor-swift-eras-tour-via-variance-films-.jpg>-->
+
+<!--https://www.billboard.com/wp-content/uploads/2024/01/taylor-swift-travis-kelce-kiss-jan-28-2024-billboard-1548.jpg-->
+
+<!--https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2023-07/230713-taylor-swift-jm-1600-daea0b.jpg-->
+
+<!--https://www.billboard.com/wp-content/uploads/2023/12/taylor-swift-eras-foxborough-2023-billboard-1548.jpg-->
